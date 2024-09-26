@@ -7,7 +7,8 @@ public class Basket : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        GameObject scoreGO = GameObject.Find("ScoreCounter");
+        scoreCounter = scoreGO.GetComponent<ScoreCounter>();
     }
 
     // Update is called once per frame
@@ -25,6 +26,7 @@ public class Basket : MonoBehaviour
         GameObject collideWith = coll.gameObject;
         if (collideWith.CompareTag("Apple")){
             Destroy(collideWith);
+            scoreCounter.score += 100;
         }
     }
 }
