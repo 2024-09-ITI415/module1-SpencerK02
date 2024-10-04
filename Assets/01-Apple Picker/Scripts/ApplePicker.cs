@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class NewBehaviourScript : MonoBehaviour
+public class ApplePicker : MonoBehaviour
 {
     [Header("Inscribed")]
     public GameObject basketPrefab;
@@ -28,8 +28,12 @@ public class NewBehaviourScript : MonoBehaviour
     public void AppleMissed(){
         //destroy all of the falling apples
         GameObject[] appleArray = GameObject.FindGameObjectsWithTag("Apple");
-        Destroy(tempGO);
-    }
+        foreach (GameObject tempGO in appleArray){
+            Destroy(tempGO);
+        }
+
+        
+    
 
     //destroy one of the baskets
     //get the index of the last basket in basketList
@@ -42,9 +46,9 @@ public class NewBehaviourScript : MonoBehaviour
 
     //if there are no baskets left, restart the game
     if (basketList.Count == 0){
-        SceneManager.LoadScene("_Scene_0");
+        SceneManager.LoadScene("Main-ApplePicker");
     }
-
+    }
     // Update is called once per frame
     void Update()
     {
