@@ -28,6 +28,7 @@ public class Basket : MonoBehaviour
         if (collideWith.CompareTag("Apple")){
             Destroy(collideWith);
             scoreCounter.score += 100;
+            HighScore.TRY_SET_HIGH_SCORE(scoreCounter.score);
         }
     }
 }

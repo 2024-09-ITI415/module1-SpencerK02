@@ -3,15 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class NewBehaviourScript : MonoBehaviour
+public class HighScore : MonoBehaviour
 {
     static private Text _UI_TEXT;
     static private int _SCORE = 1000;
 
     private Text txtCom;
 
-    void awake(){
-        _UI_TEXT = GetComponent<Text>();
+    void Awake(){
+        _UI_TEXT = this.GetComponent<Text>();
         if (PlayerPrefs.HasKey("HighScore")){
             SCORE = PlayerPrefs.GetInt("HighScore");
         }
